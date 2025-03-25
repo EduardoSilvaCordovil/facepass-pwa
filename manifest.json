@@ -1,0 +1,21 @@
+{
+	"short_name": "FacePass",
+	"name": "FacePass",
+	"icons": [
+		{
+			"src": "/images/icon512_maskable.png",
+			"type": "images/png",
+			"sizes": "512x512"
+		},
+		{
+			"src": "/images/icon512_rounded.png",
+			"type": "images/png",
+			"sizes": "512x512"
+		}
+	],
+	"start_url": "/?source=pwa",
+	"background_color": "#262c31",
+	"display": "standalone",
+	"scope": "/",
+	"theme_color": "#fcc014"
+}
