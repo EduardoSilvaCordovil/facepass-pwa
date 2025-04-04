@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1,width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/framework7.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.css">
+    <link rel="shortcut icon" href="img/facepass.png" type="image/x-icon">
+    <!--<link rel="shortcut icon" href="facepass.ico" type="image/x-icon">-->
+    <link rel="manifest" href="manifest.json">
+    <title>FacePass</title>
+</head>
+
+<body>
+
+    <div class="pwa_alert">
+        <button class="pwa_alert_btn">Adicionar a tela principal</button>
+    </div>
+
+    <div id="app"> <!-- Statusbar overlay -->
+
+        <div class="statusbar"></div> <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main"> <!-- MENU ESQUERDO -->
+            <div class="panel panel-left panel-cover panel-init" id="panel-nested" data-container-el="#panel-page">
+                <div class="block topo-painel" id="blocoMenu">
+                    <div class="block-header" style="color:white;">
+                        <div class="row">
+                            <div class="col-25" style="font-size:28px;"><i class="mdi mdi-account-circle"
+                                    style="color: black;"></i></div>
+                            <div class="col-75"><strong id="menuNome" style="color: black;">Lucas
+                                    Silva</strong><br /><small id="MenuContaPessoal"
+                                    style="color: black;">Programador</small></div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="block-title">Se quiser colocar uma divisória copie esse trecho e descomente</div>-->
+                <div class="list links-list no-hairlines no-hairlines-between no-chevron">
+                    <ul>
+                        <li> <a href="/home/">
+                                <div class="item-content ">
+                                    <div class="item-media" style="font-size:28px;"><i class="mdi mdi-home-outline"></i>
+                                    </div>
+                                    <div class="item-inner">Início</div>
+                                </div>
+                            </a> </li>
+                        <li> <a href="/dashboard/">
+                                <div class="item-content ">
+                                    <div class="item-media" style="font-size:28px;"><i class="mdi mdi-speedometer"></i>
+                                    </div>
+                                    <div class="item-inner">Dashboard</div>
+                                </div>
+                            </a> </li>
+                        <li> <a href="/usuarios/">
+                                <div class="item-content ">
+                                    <div class="item-media" style="font-size:28px;"><i
+                                            class="mdi mdi-account-multiple-outline"></i></div>
+                                    <div class="item-inner">Usuários</div>
+                                </div>
+                            </a> </li>
+                        <li> <a href="/pessoas/">
+                                <div class="item-content ">
+                                    <div class="item-media" style="font-size:28px;"><i
+                                            class="mdi mdi-account-group-outline"></i></div>
+                                    <div class="item-inner">Pessoas</div>
+                                </div>
+                            </a> </li>
+                        <li> <a href="/policiais/">
+                                <div class="item-content ">
+                                    <div class="item-media" style="font-size:28px;"><i
+                                            class="mdi mdi-account-multiple-outline"></i></div>
+                                    <div class="item-inner">Policiais</div>
+                                </div>
+                            </a>
+                    </ul>
+                </div>
+            </div>
+            <div data-name="index" class="page"> </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/framework7.js"></script>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/my-app.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+
+</body>
+
+</html>
