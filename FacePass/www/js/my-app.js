@@ -114,6 +114,26 @@ var app = new Framework7({
                 }
             }
         },
+        {
+            path: '/suporte/',
+            url: 'suporte.html',
+            on: {
+                pageInit: function (event, page) {
+                    //CONTEÚDO DA PÁGINA PRINCIPAL AQUI
+                    app.panel.close()
+                }
+            }
+        },
+        {
+            path: '/sobre/',
+            url: 'sobre.html',
+            on: {
+                pageInit: function (event, page) {
+                    //CONTEÚDO DA PÁGINA PRINCIPAL AQUI
+                    app.panel.close()
+                }
+            }
+        },
 
     ],
     // ... other parameters
