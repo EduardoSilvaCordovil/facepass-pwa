@@ -16,45 +16,61 @@
 
     <!-- Scrollable page content -->
     <div class="page-content">
-        <!-- CONTEUDO DA PAGINA AQUI -->
-        <div class="bloco-texto block block-strong inset shadowed-block"><b>Suporte</b></div>
+        <!-- CONTEUDO DA PAGINA AQUI 
+        <div class="fw-semibold mb-8 bloco-texto block block-strong inset shadowed-block"><b>Suporte</b></div>-->
+
+        <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
+            <div class="card-body px-4 py-3">
+                <div class="row align-items-center">
+                    <div class="col-9">
+                        <h4 class="fw-semibold mb-8">Suporte</h4>
+                    </div>
+                    <div class="col-3">
+                        <div class="text-center mb-n5">
+                            <img src="img/ChatBc.png" alt="modernize-img" class="img-fluid mb-n4" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="block block-strong inset shadowed-block">
             <h1>Precisa de ajuda?</h1>
             <p>Estamos aqui para ajudar. Escolha uma das opções abaixo para encontrar suporte rapidamente</p>
 
-            <div class="bloco-texto block block-strong inset shadowed-block">
-                <h2>Base de Conhecimento</h2>
+            <div class="bloco-texto block block-strong inset shadowed-block card border-info shadow-sm p-3 text-center">
+                <h3 class="fw-semibold text-info">📖 Base de Conhecimento</h3>
                 <p>Acesse artigos e tutoriais sobre o FACEPASS</p>
-                <p class="paragrafo-bloco"><a href="#">Acessar</a></p>
+                <a href="{{URL_DASH}}/faq" class="btn btn-outline-info w-100">Acessar</a>
             </div>
 
-            <div class="bloco-texto block block-strong inset shadowed-block">
-                <h2>Fale Conosco</h2>
+            <div
+                class="bloco-texto block block-strong inset shadowed-block card border-primary shadow-sm p-3 text-center">
+                <h3 class="fw-semibold text-primary">📩 Fale Conosco</h3>
                 <p>Envie uma mensagem para nossa equipe de suporte técnico.</p>
-                <p class="paragrafo-bloco"><a href="#">Enviar Mensagem</a></p>
+                <a href="{{URL_DASH}}/contato" class="btn btn-outline-primary w-100">Enviar Mensagem</a>
             </div>
 
-            <div class="bloco-texto block block-strong inset shadowed-block">
-                <h2>Relatar Problema</h2>
+            <div
+                class="bloco-texto block block-strong inset shadowed-block card border-danger shadow-sm p-3 text-center">
+                <h3 class="fw-semibold text-danger">🔧 Relatar Problema</h3>
                 <p>Encontrou um erro? Nos informe para corrigirmos.</p>
-                <p class="paragrafo-bloco"><a href="#">Reportar Erro</a></p>
+                <a href="{{URL_DASH}}/reportar" class="btn btn-outline-danger w-100">Reportar Erro</a>
             </div>
 
-            <div class="bloco-texto block block-strong inset shadowed-block">
-                <h2>Comunidade</h2>
-                <p>Conecte-se a outros usuários e troque experiências.</p>
-                <p class="paragrafo-bloco"><a href="#">Acessar Fórum</a></p>
+            <div class="col-md-6 col-lg-3">
+                <div
+                    class="bloco-texto block block-strong inset shadowed-block card border-success shadow-sm p-3 text-center">
+                    <h3 class="fw-semibold text-success">🤝 Comunidade</h3>
+                    <p>Conecte-se a outros usuários e troque experiências.</p>
+                    <a href="{{URL_DASH}}/comunidade" class="btn btn-outline-success w-100">Acessar Fórum</a>
+                </div>
             </div>
-
-
         </div>
-
-        <div class="bloco-texto block block-strong inset shadowed-block">
-            <footer>
-                <p> &copy; 2025 FACEPASS - Todos os direitos reservados.</p>
-                <p>Dúvidas? Entre em contato pelo <a href="#">nosso suporte</a></p>
-            </footer>
-        </div>
+        <footer class="bg-light text-dark py-4 text-center border-top mt-4">
+            <p class="mb-0">© 2025 FACEPASS - Todos os direitos reservados.</p>
+            <p class="small">Dúvidas? Entre em contato pelo <a href="{{URL_DASH}}/contato"
+                    class="text-info text-decoration-none">nosso suporte</a>.</p>
+        </footer>
     </div>
 </div>
