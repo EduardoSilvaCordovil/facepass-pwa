@@ -26,7 +26,7 @@
 
     <div id="app"> <!-- Statusbar overlay -->
 
-       <!-- <div class="statusbar"> 
+        <!-- <div class="statusbar"> 
         </div>  Your main view, should have "view-main" class -->
         <div class="view view-main"> <!-- MENU ESQUERDO -->
             <div class="panel panel-left panel-cover panel-init" id="panel-nested" data-container-el="#panel-page">
@@ -131,6 +131,14 @@
                             </a>
                         </li>
 
+                        <li> <a href="/verificar_preso/">
+                                <div class="item-content ">
+                                    <div class="item-media" style="font-size:28px;"><i class="mdi mdi-camera"></i></div>
+                                    <div class="item-inner">CAMERA</div>
+                                </div>
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </div>
@@ -144,7 +152,46 @@
     <script type="text/javascript" src="js/framework7.js"></script>
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
-    <script src="/js/indexedDb.js"></script>
+    <script src="./js/indexedDb.js"></script>
+
+    <script src="./js/camera.js"></script>
+    <script>
+        // Adicionar evento ao botão
+        document.getElementById('botao-camera').addEventListener('click', function () {
+            // Abrir a câmera quando o botão for clicado
+            window.cameraUtils.abrir();
+        });
+
+        // Adicionar handler para o evento de foto capturada
+        document.addEventListener('fotoCaptada', function (e) {
+            // Mostrar a foto no preview
+            const fotoPreview = document.getElementById('foto-preview');
+            fotoPreview.src = e.detail.imagem;
+            fotoPreview.style.display = 'block';
+
+            // Atualizar texto de resultado
+            document.getElementById('resultado').innerHTML = `
+          <p>Foto capturada com sucesso!</p>
+          <p>Data/Hora: ${new Date(e.detail.dataHora).toLocaleString()}</p>
+        `;
+
+            // Exemplo: aqui você poderia enviar a foto para o reconhecimento facial
+            // processarFoto(e.detail.imagem);
+        });
+
+        // Função exemplo para processar a foto (integraria com seu sistema de reconhecimento)
+        function processarFoto(imagemBase64) {
+            // Aqui você integraria com seu sistema de reconhecimento facial
+            console.log("Processando foto para reconhecimento...");
+
+            // Exemplo simples que apenas simula um processamento
+            setTimeout(() => {
+                document.getElementById('resultado').innerHTML += `
+            <p>Processamento concluído!</p>
+          `;
+            }, 2000);
+        }
+    </script>
 
 </body>
 
