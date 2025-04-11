@@ -27,7 +27,7 @@
             <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
                     <div class="col-9">
-                        <h4 class="fw-semibold mb-8">CAMERA</h4>
+                        <h4 class="fw-semibold mb-8">Verificar Preso</h4>
                     </div>
                     <div class="col-3">
                         <div class="text-center mb-n5">
@@ -36,6 +36,17 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <h1>Captura de Fotos com Câmera Frontal e Traseira</h1>
+        <div id="camera-container">
+          <video id="camera" autoplay playsinline></video>
+          <div>
+            <button id="toggleCamera">Alternar Câmera</button>
+            <button id="capturePhoto">Tirar Foto</button>
+          </div>
+          <canvas id="photoCanvas" style="display: none;"></canvas>
+          <img id="capturedPhoto" alt="Foto capturada" style="max-width: 100%; margin-top: 20px;">
         </div>
 
         <footer class="bg-light text-dark py-4 text-center border-top mt-4">

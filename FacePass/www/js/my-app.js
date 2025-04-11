@@ -214,5 +214,105 @@ function onDeviceReady() {
         // variavel para pegar a rota que estamos
         var nome = app.views.main.router.url;
     }
-
 }
+
+// Variáveis globais
+let currentFacingMode = 'environment'; // Inicia com a câmera traseira
+let videoStream = null;
+
+// Elementos do DOM
+const videoElement = document.getElementById('camera');
+const toggleCameraButton = document.getElementById('toggleCamera');
+const capturePhotoButton = document.getElementById('capturePhoto');
+const photoCanvas = document.getElementById('photoCanvas');
+const capturedPhoto = document.getElementById('capturedPhoto');
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Variáveis globais
+    let currentFacingMode = 'environment'; // Inicia com a câmera traseira
+    let videoStream = null;
+  
+    // Elementos do DOM
+    const videoElement = document.getElementById('camera');
+    const toggleCameraButton = document.getElementById('toggleCamera');
+    const capturePhotoButton = document.getElementById('capturePhoto');
+    const photoCanvas = document.getElementById('photoCanvas');
+    const capturedPhoto = document.getElementById('capturedPhoto');
+  
+    // Função para iniciar a câmera
+    async function startCamera(facingMode) {
+      try {
+        // Para o stream anterior, se existir
+        if (videoStream) {
+          const tracks = videoStream.getTracks();
+          tracks.forEach(track => track.stop());
+        }
+  
+        // Solicita acesso à câmera
+        const constraints = {
+          video: { facingMode: facingMode }
+        };
+  
+        videoStream = await navigator.mediaDevices.getUserMedia(constraints);
+        videoElement.srcObject = videoStream;
+      } catch (error) {
+        console.error('Erro ao acessar a câmera:', error);
+        alert('Não foi possível acessar a câmera. Verifique as permissões.');
+      }
+    }
+  
+    // Função para alternar entre as câmeras
+    toggleCameraButton.addEventListener('click', () => {
+      currentFacingMode = currentFacingMode === 'environment' ? 'user' : 'environment';
+      startCamera(currentFacingMode);
+    });
+  
+    // Função para capturar a foto
+    capturePhotoButton.addEventListener('click', () => {
+      // Define as dimensões do canvas
+      photoCanvas.width = videoElement.videoWidth;
+      photoCanvas.height = videoElement.videoHeight;
+  
+      // Desenha o frame atual do vídeo no canvas
+      const context = photoCanvas.getContext('2d');
+      context.drawImage(videoElement, 0, 0, photoCanvas.width, photoCanvas.height);
+  
+      // Converte o canvas para uma imagem e exibe
+      const imageDataUrl = photoCanvas.toDataURL('image/png');
+      capturedPhoto.src = imageDataUrl;
+      capturedPhoto.style.display = 'block';
+  
+      // Salvar a foto no IndexedDB ou enviar para o servidor, se necessário
+      savePhotoToIndexedDB(imageDataUrl);
+    });
+  
+    // Função para salvar a foto no IndexedDB
+    function savePhotoToIndexedDB(photoData) {
+      const dbPromise = indexedDB.open('FacePassDB', 1);
+  
+      dbPromise.onupgradeneeded = function (event) {
+        const db = event.target.result;
+        if (!db.objectStoreNames.contains('photos')) {
+          db.createObjectStore('photos', { keyPath: 'id', autoIncrement: true });
+        }
+      };
+  
+      dbPromise.onsuccess = function (event) {
+        const db = event.target.result;
+        const transaction = db.transaction('photos', 'readwrite');
+        const store = transaction.objectStore('photos');
+        store.add({ data: photoData, timestamp: new Date().toISOString() });
+  
+        transaction.oncomplete = function () {
+          console.log('Foto salva no IndexedDB');
+        };
+      };
+  
+      dbPromise.onerror = function (event) {
+        console.error('Erro ao acessar o IndexedDB:', event.target.error);
+      };
+    }
+  
+    // Inicializa a câmera quando a página carrega
+    startCamera(currentFacingMode);
+  });
