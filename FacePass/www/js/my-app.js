@@ -2,6 +2,17 @@ let myPrompt;
 const pwaAlert = document.querySelector('.pwa_alert');
 const btnPwa = document.querySelector('.pwa_alert_btn');
 
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js')
+            .then((registration) => {
+                console.log('Registration successful', registration);
+            }).catch((error) => {
+                console.log('Service Worker registration failed, error: ', error);
+            });
+    });
+}
+
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     console.log('Pronto para instalar', e);
@@ -22,16 +33,6 @@ btnPwa.addEventListener('click', () => {
         }
     }))
 })
-
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-        .then(function (registration) {
-            console.log('Resgistration sucessful, scope is:', registration.scope);
-        })
-        .catch(function (error) {
-            console.log('Service Worker registration failed, error: ', error);
-        })
-}
 
 document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 
@@ -138,6 +139,20 @@ var app = new Framework7({
     ],
     // ... other parameters
 });
+
+// LISTAR DADOS
+function listar() {
+    $.ajax({
+        url: "http://localhost/database/ppl.php",
+        method: 'POST',
+        data: $("#form").serialize(),
+        dataType: "html",
+
+        sucess: function (result) {
+            $("#lista").html(result);
+        }
+    });
+}
 
 var $$ = Dom7;
 

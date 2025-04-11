@@ -1,59 +1,63 @@
 const CACHE_NAME = "facepass-v1";
-const DATA_CACHE = 'data-cache-v1';
 
 self.addEventListener("install", function (event) {
+  console.log('Service Worker installing...');
+
+  const filesToCache = [
+    "./",
+    "./manifest.json",
+    "./index.html",
+    "./css/custom.css",
+    "./js/my-app.js",
+    "./js/indexedDb.js",
+  ];
+
   event.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
-      return cache.addAll([
-        "/",
-        "/index.html",
-        "www/css/custom.css",
-        "www/js/my-app.js",
-        "www/js/indexedDB.js",
-        "www/js/dataLoader.js",
-        "www/js/facialRecognition.js",
-      ]);
+      console.log('Cache aberto');
+
+      const cachePromises = filesToCache.map(url => {
+
+        return cache.add(url).catch(error => {
+          console.log('Falha ao adicionar ao cache:', url, error);
+
+          return Promise.resolve();
+        });
+      });
+
+      return Promise.all(cachePromises);
     })
   );
 });
 
 self.addEventListener("fetch", function (event) {
   event.respondWith(
-    caches.open(CACHE_NAME).then(function (cache) {
-      return cache.match(event.request).then(function (response) {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request).then(function (networkResponse) {
-          if (networkResponse && networkResponse.status === 200) {
-            cache.put(event.request, networkResponse.clone());
-          }
-          return networkResponse;
-        });
+    caches.match(event.request).then(function (response) {
+      if (response) {
+        return response;
+      }
+
+      return fetch(event.request).catch(function () {
+        console.log('Falha ao buscar:', event.request.url);
+
       });
     })
   );
 });
 
-self.addEventListener('fetch', event => {
-  const url = new URL(event.request.url);
+self.addEventListener('activate', function (event) {
+  console.log('Service Worker activating...');
 
-  // Se for uma solicitação de chunk de dados
-  if (url.pathname.includes('/api/presos-data/chunk/')) {
-    event.respondWith(
-      caches.open(DATA_CACHE).then(cache => {
-        return fetch(event.request).then(response => {
-          cache.put(event.request, response.clone());
-          return response;
-        });
-      })
-    );
-    return;
-  }
-  // Para outras solicitações
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
+  event.waitUntil(
+    caches.keys().then(function (cacheNames) {
+      return Promise.all(
+        cacheNames.filter(function (cacheName) {
+          return cacheName.startsWith('facepass-') && cacheName !== CACHE_NAME;
+        }).map(function (cacheName) {
+          console.log('Removendo cache antigo:', cacheName);
+          return caches.delete(cacheName);
+        })
+      );
     })
   );
 });
