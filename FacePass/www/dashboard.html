@@ -16,32 +16,68 @@
 
     <!-- Scrollable page content -->
     <div class="page-content">
-        <!-- CONTEUDO DA PAGINA AQUI 
-        <div class="block-title"><h4>Dashboard</h4></div>
-        <div class="block">
-            <p>Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis
-                tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
-        </div>-->
-
-        <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
+        <!-- CONTEUDO DA PAGINA AQUI -->
+        <!-- Breadcrumb e Título -->
+        <div class="card bg-light shadow-sm border-0 rounded-4 mb-4">
             <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
-                    <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Dashboard</h4>
+                    <div class="col-md-9 col-sm-12">
+                        <h4 class="fw-bold text-dark mb-3">📊 Dashboard</h4>
                     </div>
-                    <div class="col-3">
+                    <div class="col-md-3 d-none d-md-block">
                         <div class="text-center mb-n5">
-                            <img src="img/ChatBc.png" alt="modernize-img" class="img-fluid mb-n4" />
+                            <img src="{{PATH_ASSETS_DASH}}/images/breadcrumb/ChatBc.png" alt="dashboard-img"
+                                class="img-fluid" style="max-height: 80px;" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <footer class="bg-light text-dark py-4 text-center border-top mt-4">
-            <p class="mb-0">© 2025 FACEPASS - Todos os direitos reservados.</p>
-            <p class="small">Dúvidas? Entre em contato pelo <a href="{{URL_DASH}}/contato"
-                    class="text-info text-decoration-none">nosso suporte</a>.</p>
+        <!-- Conteúdo do Dashboard -->
+        <div class="container mb-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card shadow-lg p-4 border-0 rounded-4">
+                        <h4 class="fw-bold text-primary mb-4">📈 Painel de Acessos</h4>
+
+                        <!-- Gráfico Geral -->
+                        <div class="mb-5">
+                            <h5 class="fw-semibold border-start border-4 ps-3 border-primary mb-3">Acessos Gerais</h5>
+                            <canvas id="graficoGeral" height="100"></canvas>
+                        </div>
+
+                        <!-- Gráfico por Usuário -->
+                        <div class="mb-5">
+                            <h5 class="fw-semibold border-start border-4 ps-3 border-success mb-3">Acessos por Usuário
+                            </h5>
+                            <canvas id="graficoUsuario" height="100"></canvas>
+                        </div>
+
+                        <!-- Gráfico por Portaria -->
+                        <div class="mb-5">
+                            <h5 class="fw-semibold border-start border-4 ps-3 border-warning mb-3">Acessos por Portaria
+                            </h5>
+                            <canvas id="graficoPortaria" height="100"></canvas>
+                        </div>
+
+                        <!-- Gráfico por Unidade -->
+                        <div>
+                            <h5 class="fw-semibold border-start border-4 ps-3 border-info mb-3">Acessos por Unidade</h5>
+                            <canvas id="graficoUnidade" height="100"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rodapé -->
+        <footer class="text-dark py-4 text-center bg-white border-top mt-5">
+            <p class="mb-0">© 2025 <strong>FACEPASS</strong> - Todos os direitos reservados.</p>
+            <p class="small">Dúvidas? Fale com a gente no <a href="{{URL_DASH}}/suporte"
+                    class="text-primary text-decoration-none fw-semibold">nosso suporte</a>.</p>
         </footer>
+
+
     </div>
 </div>

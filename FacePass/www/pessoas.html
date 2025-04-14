@@ -10,38 +10,205 @@
                 </a>
             </div>
             <div class="logo-facepass"><img src="img/dark-logo.svg" alt="dark-logo.svg"></div>
-            <!--<div class="title" id="titleApp" style="font-size:13px">Pessoas</div>-->
         </div>
     </div>
 
     <!-- Scrollable page content -->
     <div class="page-content">
-        <!-- CONTEUDO DA PAGINA AQUI 
-        <div class="block block-strong inset shadowed-block"><b>Conteúdo Pessoas</b></div>
-        <div class="block">
-            <p>Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis
-                tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
-        </div>-->
+        <!-- CONTEUDO DA PAGINA AQUI -->
 
-        <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
+        <div class="card bg-light shadow-sm border-0 rounded-4 mb-4">
             <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
-                    <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Pessoas</h4>
+                    <div class="col-md-9 col-sm-12">
+                        <h4 class="fw-bold text-dark mb-3">Pessoas</h4>
                     </div>
-                    <div class="col-3">
+                    <div class="col-md-3 d-none d-md-block">
                         <div class="text-center mb-n5">
-                            <img src="img/ChatBc.png" alt="modernize-img" class="img-fluid mb-n4" />
+                            <img src="{{PATH_ASSETS_DASH}}/images/breadcrumb/ChatBc.png" alt="dashboard-img"
+                                class="img-fluid" style="max-height: 80px;" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <footer class="bg-light text-dark py-4 text-center border-top mt-4">
-            <p class="mb-0">© 2025 FACEPASS - Todos os direitos reservados.</p>
-            <p class="small">Dúvidas? Entre em contato pelo <a href="{{URL_DASH}}/contato"
-                    class="text-info text-decoration-none">nosso suporte</a>.</p>
+
+        <div class="widget-content searchable-container list">
+            <div class="card card-body">
+                <div class="row">
+                    <div class="col-md-4 col-xl-3">
+                        <form class="position-relative">
+                            <input type="text" class="form-control product-search ps-5" id="input-search"
+                                placeholder="Pesquisar usuário..." />
+                            <i
+                                class="ti ti-search position-absolute top-50 start-0 translate-middle-y fs-6 text-dark ms-3"></i>
+                        </form>
+                    </div>
+                    <div
+                        class="col-md-8 col-xl-9 text-end d-flex justify-content-md-end justify-content-center mt-3 mt-md-0">
+                        <a href="javascript:void(0)" id="btn-add-user"
+                            class="btn btn-primary d-flex align-items-center">
+                            <i class="ti ti-friends text-white me-1 fs-5"></i> + Pessoa
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-body">
+                <div class="table-responsive">
+                    <table class="table search-table align-middle text-nowrap">
+                        <thead class="header-item">
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Permissões</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </thead>
+                        <tbody>
+                            <!-- start row -->
+                            <!-- end row -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header d-flex align-items-center">
+                        <h5 class="modal-title" id="c-titulo"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="add-contact-box">
+                            <div class="add-contact-content">
+                                <form id="cadastroForm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" id="c-cpf"
+                                                    class="form-control border border-info input-cpf" placeholder="CPF"
+                                                    data-required="true" data-type="cpf" />
+                                                <label>CPF
+                                                </label>
+                                                <span class="validation-text text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <select id="c-status" class="form-select border border-info"
+                                                    data-required="true">
+                                                    <option value="">Selecione o status</option>
+                                                    <option value="1">Ativo</option>
+                                                    <option value="0">Inativo</option>
+                                                </select>
+                                                <label>Status</label>
+                                                <span class="validation-text text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" id="c-name"
+                                                    class="form-control text-uppercase border border-info nome"
+                                                    placeholder="Nome completo" data-required="true" />
+                                                <label>
+                                                    Nome completo
+                                                </label>
+                                                <span class="validation-text text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-floating mb-3">
+                                                <input type="email" id="c-email"
+                                                    class="form-control text-lowercase border border-info"
+                                                    placeholder="E-mail" data-required="true" data-type="email" />
+                                                <label>E-mail
+                                                </label>
+                                                <span class="validation-text text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input type="password" id="c-password"
+                                                    class="form-control border border-info" placeholder="Senha"
+                                                    data-required="true" data-min-length="6" />
+                                                <label>Senha
+                                                </label>
+                                                <span class="validation-text text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3">
+                                                <input type="password" id="c-password-conf"
+                                                    class="form-control border border-info"
+                                                    placeholder="Confirmar senha" data-required="true"
+                                                    data-match="#c-password" />
+                                                <label>Confirmar senha
+                                                </label>
+                                                <span class="validation-text text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label>Permissões</label>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input success" type="checkbox"
+                                                    id="painel-check" value="painel">
+                                                <label class="form-check-label" for="painel-check">Dashboard</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input success" type="checkbox"
+                                                    id="usuarios-check" value="usuarios">
+                                                <label class="form-check-label" for="usuarios-check">Usuários</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input success" type="checkbox"
+                                                    id="pessoas-check" value="pessoas">
+                                                <label class="form-check-label" for="pessoas-check">Pessoas</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input success" type="checkbox"
+                                                    id="relatorios-check" value="relatorios">
+                                                <label class="form-check-label"
+                                                    for="relatorios-check">Relatórios</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="d-flex gap-6 m-0">
+                            <button id="btn-add" class="btn btn-success">Adicionar</button>
+                            <button id="btn-edit" class="btn btn-success">Salvar</button>
+                            <button class="btn bg-danger-subtle text-danger" data-bs-dismiss="modal"> Fechar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-dark py-4 text-center bg-white border-top mt-5">
+            <p class="mb-0">© 2025 <strong>FACEPASS</strong> - Todos os direitos reservados.</p>
+            <p class="small">Dúvidas? Fale com a gente no <a href="{{URL_DASH}}/suporte"
+                    class="text-primary text-decoration-none fw-semibold">nosso suporte</a>.</p>
         </footer>
 
     </div>

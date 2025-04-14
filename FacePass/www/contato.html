@@ -10,38 +10,128 @@
                 </a>
             </div>
             <div class="logo-facepass"><img src="img/dark-logo.svg" alt="dark-logo.svg"></div>
-            <!--<div class="title" id="titleApp" style="font-size:13px">Pessoas</div>-->
         </div>
     </div>
 
     <!-- Scrollable page content -->
     <div class="page-content">
-        <!-- CONTEUDO DA PAGINA AQUI 
-        <div class="block block-strong inset shadowed-block"><b>Conteúdo Pessoas</b></div>
-        <div class="block">
-            <p>Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis
-                tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
-        </div>-->
+        <!-- CONTEUDO DA PAGINA AQUI -->
 
-        <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
+        <div class="card bg-light shadow-sm border-0 rounded-4 mb-4">
             <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
-                    <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Contato</h4>
+                    <div class="col-md-9 col-sm-12">
+                        <h4 class="fw-bold text-dark mb-3">Contato</h4>
                     </div>
-                    <div class="col-3">
+                    <div class="col-md-3 d-none d-md-block">
                         <div class="text-center mb-n5">
-                            <img src="img/ChatBc.png" alt="modernize-img" class="img-fluid mb-n4" />
+                            <img src="{{PATH_ASSETS_DASH}}/images/breadcrumb/ChatBc.png" alt="dashboard-img"
+                                class="img-fluid" style="max-height: 80px;" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <footer class="bg-light text-dark py-4 text-center border-top mt-4">
-            <p class="mb-0">© 2025 FACEPASS - Todos os direitos reservados.</p>
-            <p class="small">Dúvidas? Entre em contato pelo <a href="{{URL_DASH}}/contato"
-                    class="text-info text-decoration-none">nosso suporte</a>.</p>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card shadow p-5 border-0">
+                        <h2 class="text-center fw-bold text-primary mb-3">Entre em Contato com o FACEPASS</h2>
+                        <p class="text-center text-muted mb-5">Escolha um dos canais abaixo para se conectar com a nossa
+                            equipe. Estamos prontos pra trocar ideia com você!</p>
+
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-4">
+                                <div class="text-center p-4 border rounded h-100 hover-shadow transition">
+                                    <i class="ti ti-brand-whatsapp fs-8 text-success mb-3"></i>
+                                    <h5 class="fw-semibold">WhatsApp</h5>
+                                    <p class="text-muted">(91) 99999-9999</p>
+                                    <a href="https://wa.me/5511912345678" class="btn btn-success btn-sm mt-2"
+                                        target="_blank">
+                                        <i class="ti ti-message me-1"></i> Conversar
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="text-center p-4 border rounded h-100 hover-shadow transition">
+                                    <i class="ti ti-brand-instagram fs-8 text-danger mb-3"></i>
+                                    <h5 class="fw-semibold">Instagram</h5>
+                                    <p class="text-muted">@facepass.oficial</p>
+                                    <a href="https://instagram.com/facepass.oficial" class="btn btn-danger btn-sm mt-2"
+                                        target="_blank">
+                                        <i class="ti ti-arrow-up-right me-1"></i> Seguir
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="text-center p-4 border rounded h-100 hover-shadow transition">
+                                    <i class="ti ti-brand-discord fs-8 text-indigo mb-3"></i>
+                                    <h5 class="fw-semibold">Discord</h5>
+                                    <p class="text-muted">Comunidade FACEPASS</p>
+                                    <a href="https://discord.gg/DqVevygD" class="btn btn-primary btn-sm mt-2"
+                                        target="_blank">
+                                        <i class="ti ti-users me-1"></i> Entrar no Fórum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-top pt-4 mt-5">
+                            <h4 class="text-center fw-semibold mb-4">Ou reporte um erro ou fale com a gente aqui mesmo
+                            </h4>
+                            <form id="contato-form">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Seu Nome</label>
+                                        <input type="text" class="form-control" name="nome" required />
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Seu E-mail</label>
+                                        <input type="email" class="form-control" name="email" required />
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Mensagem</label>
+                                    <textarea class="form-control" name="mensagem" rows="4" required></textarea>
+                                </div>
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="ti ti-send me-1"></i> Enviar Mensagem
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de Sucesso -->
+        <div class="modal fade" id="modalSucesso" tabindex="-1" aria-labelledby="modalSucessoLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content border-success">
+                    <div class="modal-header bg-success text-white">
+                        <h5 class="modal-title" id="modalSucessoLabel">Mensagem Enviada ✅</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">
+                        Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-dark py-4 text-center bg-white border-top mt-5">
+            <p class="mb-0">© 2025 <strong>FACEPASS</strong> - Todos os direitos reservados.</p>
+            <p class="small">Dúvidas? Fale com a gente no <a href="{{URL_DASH}}/suporte"
+                    class="text-primary text-decoration-none fw-semibold">nosso suporte</a>.</p>
         </footer>
 
     </div>

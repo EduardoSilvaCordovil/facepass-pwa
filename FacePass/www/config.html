@@ -16,33 +16,142 @@
 
     <!-- Scrollable page content -->
     <div class="page-content">
-        <!-- CONTEUDO DA PAGINA AQUI 
-        <div class="block block-strong inset shadowed-block"><b>Conteúdo Pessoas</b></div>
-        <div class="block">
-            <p>Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis
-                tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
-        </div>-->
+        <!-- CONTEUDO DA PAGINA AQUI -->
 
-        <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
+        <div class="card bg-light shadow-sm border-0 rounded-4 mb-4">
             <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
-                    <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Configuração</h4>
+                    <div class="col-md-9 col-sm-12">
+                        <h4 class="fw-bold text-dark mb-3">Configurações</h4>
                     </div>
-                    <div class="col-3">
+                    <div class="col-md-3 d-none d-md-block">
                         <div class="text-center mb-n5">
-                            <img src="img/ChatBc.png" alt="modernize-img" class="img-fluid mb-n4" />
+                            <img src="{{PATH_ASSETS_DASH}}/images/breadcrumb/ChatBc.png" alt="dashboard-img"
+                                class="img-fluid" style="max-height: 80px;" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <footer class="bg-light text-dark py-4 text-center border-top mt-4">
-            <p class="mb-0">© 2025 FACEPASS - Todos os direitos reservados.</p>
-            <p class="small">Dúvidas? Entre em contato pelo <a href="{{URL_DASH}}/contato"
-                    class="text-info text-decoration-none">nosso suporte</a>.</p>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card shadow p-4 border-0">
+                        <h4 class="fw-bold text-primary mb-4">⚙️ Preferências do Sistema</h4>
+
+                        <div class="mb-4">
+                            <label for="tema" class="form-label fw-semibold">Tema</label>
+                            <select class="form-select" id="tema">
+                                <option value="light">Claro</option>
+                                <option value="dark">Escuro</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="idioma" class="form-label fw-semibold">Idioma</label>
+                            <select class="form-select" id="idioma">
+                                <option value="pt">Português (Brasil)</option>
+                                <option value="en">Inglês</option>
+                                <option value="es">Espanhol</option>
+                            </select>
+                        </div>
+
+                        <hr class="my-5">
+
+                        <h4 class="fw-bold text-primary mb-4">👤 Configurações de Conta</h4>
+
+                        <div class="mb-4">
+                            <label for="nomeUsuario" class="form-label fw-semibold">Nome do Usuário</label>
+                            <input type="text" class="form-control" id="nomeUsuario"
+                                placeholder="Digite seu nome completo">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="emailUsuario" class="form-label fw-semibold">E-mail</label>
+                            <input type="email" class="form-control" id="emailUsuario" placeholder="Digite seu e-mail">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="fotoUsuario" class="form-label fw-semibold">Foto de Perfil</label>
+                            <input type="file" class="form-control" id="fotoUsuario">
+                        </div>
+
+                        <hr class="my-5">
+
+                        <h4 class="fw-bold text-primary mb-4">🔐 Permissões de Acesso</h4>
+
+                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="perm-home" value="home">
+                                <label class="form-check-label fw-semibold" for="perm-home">Início (Home)</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="perm-painel" value="painel">
+                                <label class="form-check-label fw-semibold" for="perm-painel">Painel</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="perm-usuarios" value="usuarios">
+                                <label class="form-check-label fw-semibold" for="perm-usuarios">Usuários</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="perm-relatorios" value="relatorios">
+                                <label class="form-check-label fw-semibold" for="perm-relatorios">Relatórios</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="perm-pessoas" value="pessoas">
+                                <label class="form-check-label fw-semibold" for="perm-pessoas">Pessoas</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="perm-policiais" value="policiais">
+                                <label class="form-check-label fw-semibold" for="perm-policiais">Policiais</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="perm-suporte" value="suporte">
+                                <label class="form-check-label fw-semibold" for="perm-suporte">Suporte</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="perm-sobre" value="sobre">
+                                <label class="form-check-label fw-semibold" for="perm-sobre">Sobre</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="perm-contato" value="contato">
+                                <label class="form-check-label fw-semibold" for="perm-contato">Contato</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="perm-config" value="config">
+                                <label class="form-check-label fw-semibold" for="perm-config">Configurações</label>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 text-end">
+                            <button class="btn btn-outline-primary" id="btn-salvar-config">
+                                <i class="ti ti-device-floppy"></i> Salvar Alterações
+                            </button>
+                        </div>
+
+                        <div id="mensagem-sucesso" class="alert alert-success mt-4 d-none">
+                            Configurações salvas com sucesso! ✅
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="text-dark py-4 text-center bg-white border-top mt-5">
+            <p class="mb-0">© 2025 <strong>FACEPASS</strong> - Todos os direitos reservados.</p>
+            <p class="small">Dúvidas? Fale com a gente no <a href="{{URL_DASH}}/suporte"
+                    class="text-primary text-decoration-none fw-semibold">nosso suporte</a>.</p>
         </footer>
+
 
     </div>
 </div>

@@ -56,7 +56,19 @@ var app = new Framework7({
                 // modificar
                 pageInit: function (event, page) {
                     //Chamar pagina inicial Home						
-                    app.views.main.router.navigate('/home/');
+                    app.views.main.router.navigate('/login/');
+                }
+            }
+        },
+
+        {
+            path: '/login/',
+            url: 'login.html',
+            on: {
+                // modificar
+                pageInit: function (event, page) {
+                    //Chamar pagina inicial Home						
+                    app.views.main.router.navigate('/login/');
                 }
             }
         },

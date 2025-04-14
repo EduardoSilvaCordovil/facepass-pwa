@@ -9,11 +9,14 @@
           <i class="mdi mdi-menu" style="color: black;"></i>
         </a>
       </div>
-      <!-- <div class="title" id="titleApp" style="font-size:13px">Início</div> -->
 
       <div class="logo-facepass"><img src="img/dark-logo.svg" alt="dark-logo.svg"></div>
       <a href="#" class="toolbar-dark-mode">
         <i class="mdi mdi-theme-light-dark" style="color: black;"></i>
+      </a>
+
+      <a href="/login/">
+        <i class="mdi mdi-logout"></i>
       </a>
 
     </div>
@@ -25,23 +28,28 @@
 
     <!-- CONTEUDO DA PAGINA AQUI -->
 
-    <!--<div class="block-title"><b>Bem-vindo(a)!</b></div>-->
-    <div class="card-body block block-strong inset shadowed-block">
-      
-      <h5 class="card-title fw-semibold mb-4 brand-title">Olá, {user}, seja bem-vindo(a)!</h5>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold mb-4 brand-title"></h5>
+        <p class="mb-0">
+          É um prazer tê-lo(a) conosco no sistema de controle e acesso por reconhecimento facial - FACEPASS. Estamos
+          aqui para tornar sua experiência mais segura, prática e eficiente.<br><br>
 
-      <p class="mb-0">
-        É um prazer tê-lo(a) conosco no sistema de controle e acesso por reconhecimento facial - FACEPASS. Estamos aqui
-        para tornar sua experiência mais segura, prática e eficiente.<br><br>
+          Se precisar de ajuda, estamos à disposição. Aproveite a facilidade e tecnologia que o sistema oferece!<br><br>
 
-        Se precisar de ajuda, estamos à disposição. Aproveite a facilidade e tecnologia que o sistema oferece!
-      </p>
+          ✅ O sistema está rodando 100%
+        </p>
+        <br>
+        <br>
+        <a class="text-muted text-decoration-none" href="{{URL_DASH}}/suporte">🛠️ Suporte</a><br>
+        <a class="text-muted text-decoration-none" href="{{URL_DASH}}/sobre" href="#">❓ Como funciona o FACEPASS?</a>
+      </div>
     </div>
 
-    <footer class="bg-light text-dark py-4 text-center border-top mt-4">
-      <p class="mb-0">© 2025 FACEPASS - Todos os direitos reservados.</p>
-      <p class="small">Dúvidas? Entre em contato pelo <a href="{{URL_DASH}}/contato"
-          class="text-info text-decoration-none">nosso suporte</a>.</p>
+    <footer class="text-dark py-4 text-center bg-white border-top mt-5">
+      <p class="mb-0">© 2025 <strong>FACEPASS</strong> - Todos os direitos reservados.</p>
+      <p class="small">Dúvidas? Fale com a gente no <a href="{{URL_DASH}}/suporte"
+          class="text-primary text-decoration-none fw-semibold">nosso suporte</a>.</p>
     </footer>
 
   </div>

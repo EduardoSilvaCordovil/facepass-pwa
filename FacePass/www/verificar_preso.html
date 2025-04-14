@@ -10,49 +10,68 @@
                 </a>
             </div>
             <div class="logo-facepass"><img src="img/dark-logo.svg" alt="dark-logo.svg"></div>
-            <!--<div class="title" id="titleApp" style="font-size:13px">Dashboard</div>-->
+
         </div>
     </div>
 
     <!-- Scrollable page content -->
     <div class="page-content">
-        <!-- CONTEUDO DA PAGINA AQUI 
-        <div class="block-title"><h4>Dashboard</h4></div>
-        <div class="block">
-            <p>Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis
-                tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
-        </div>-->
+        <!-- CONTEUDO DA PAGINA AQUI -->
 
-        <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
-            <div class="card-body px-4 py-3">
-                <div class="row align-items-center">
-                    <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Verificar Preso</h4>
-                    </div>
-                    <div class="col-3">
-                        <div class="text-center mb-n5">
-                            <img src="img/ChatBc.png" alt="modernize-img" class="img-fluid mb-n4" />
+        <div class="widget-content">
+
+            <!-- Mensagem de carregamento -->
+            <div id="loading-message">Carregando dados, por favor aguarde...</div>
+
+            <!-- Barra de progresso -->
+            <div id="loading-progress">
+                <div id="progress-bar"></div>
+                <div id="progress-text">Carregando 0%</div>
+            </div>
+
+            <!-- Conteúdo principal -->
+            <div id="main-content">
+                <div class="container-facepass">
+                    <div class="recognition-section">
+                        <div id="camera">
+                            <video id="video" autoplay muted></video>
                         </div>
                     </div>
+                    <button id="capture-button" style="display: none;">Capturar</button>
+                </div>
+            </div>
+
+            <!-- Efeito de flash -->
+            <div id="flash-effect" style="display: none;"></div>
+
+            <!-- Mensagem para reconhecimento facial -->
+            <div id="aguarde-mensagem" style="display: none;">Pesquisando...</div>
+
+            <!-- Congela a imagem -->
+            <canvas id="canvas-congelado" style="display: none;"></canvas>
+
+            <!-- Div para exibir informações do preso (inicialmente oculta) -->
+            <div class="card-prisoners">
+                <div id="preso-info" style="display: none;">
+                    <img id="preso-foto" src="" alt="Foto do Preso" style="width: 100px; height: 100px;">
+                    <p><strong>Nome:</strong> <span id="preso-nome"></span></p>
+                    <p><strong>Situação Preso:</strong> <span id="preso-situacaoPreso"></span></p>
+                    <p><strong>Descrição da Situação:</strong> <span id="preso-situacao"></span></p>
+                    <p><strong>Unidade:</strong> <span id="preso-unidade"></span></p>
+                    <p><strong>Cela:</strong> <span id="preso-sela"></span></p>
+                    <button id="nova-captura">Nova Captura</button>
+                </div>
+            </div>
+
+            <!-- Div para informar preso não cadastrado -->
+            <div class="card-prisoners">
+                <div id="preso-nao-cadastrado" style="display: none;">
+                    <img id="foto-congelada" src="" alt="Foto Congelada" style="width: 100px; height: 100px;">
+                    <p>Indivíduo não cadastrado</p>
+                    <button id="nova-captura">Nova Captura</button>
                 </div>
             </div>
         </div>
 
-        <h1>Captura de Fotos com Câmera Frontal e Traseira</h1>
-        <div id="camera-container">
-          <video id="camera" autoplay playsinline></video>
-          <div>
-            <button id="toggleCamera">Alternar Câmera</button>
-            <button id="capturePhoto">Tirar Foto</button>
-          </div>
-          <canvas id="photoCanvas" style="display: none;"></canvas>
-          <img id="capturedPhoto" alt="Foto capturada" style="max-width: 100%; margin-top: 20px;">
-        </div>
-
-        <footer class="bg-light text-dark py-4 text-center border-top mt-4">
-            <p class="mb-0">© 2025 FACEPASS - Todos os direitos reservados.</p>
-            <p class="small">Dúvidas? Entre em contato pelo <a href="{{URL_DASH}}/contato"
-                    class="text-info text-decoration-none">nosso suporte</a>.</p>
-        </footer>
     </div>
 </div>

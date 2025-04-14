@@ -10,38 +10,74 @@
                 </a>
             </div>
             <div class="logo-facepass"><img src="img/dark-logo.svg" alt="dark-logo.svg"></div>
-            <!--<div class="title" id="titleApp" style="font-size:13px">Pessoas</div>-->
         </div>
     </div>
 
     <!-- Scrollable page content -->
     <div class="page-content">
-        <!-- CONTEUDO DA PAGINA AQUI 
-        <div class="block block-strong inset shadowed-block"><b>Conteúdo Pessoas</b></div>
-        <div class="block">
-            <p>Donec et nulla auctor massa pharetra adipiscing ut sit amet sem. Suspendisse molestie velit vitae mattis
-                tincidunt. Ut sit amet quam mollis, vulputate turpis vel, sagittis felis. </p>
-        </div>-->
+        <!-- CONTEUDO DA PAGINA AQUI -->
 
-        <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-4">
+        <div class="card bg-light shadow-sm border-0 rounded-4 mb-4">
             <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
-                    <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Relatórios</h4>
+                    <div class="col-md-9 col-sm-12">
+                        <h4 class="fw-bold text-dark mb-3">Relatórios</h4>
                     </div>
-                    <div class="col-3">
+                    <div class="col-md-3 d-none d-md-block">
                         <div class="text-center mb-n5">
-                            <img src="img/ChatBc.png" alt="modernize-img" class="img-fluid mb-n4" />
+                            <img src="{{PATH_ASSETS_DASH}}/images/breadcrumb/ChatBc.png" alt="dashboard-img"
+                                class="img-fluid" style="max-height: 80px;" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <footer class="bg-light text-dark py-4 text-center border-top mt-4">
-            <p class="mb-0">© 2025 FACEPASS - Todos os direitos reservados.</p>
-            <p class="small">Dúvidas? Entre em contato pelo <a href="{{URL_DASH}}/contato"
-                    class="text-info text-decoration-none">nosso suporte</a>.</p>
+        <div class="container mb-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card shadow p-4 border-0">
+                        <h4 class="fw-bold text-primary mb-4">📊 Relatórios do Sistema</h4>
+
+                        <!-- Filtro de Visitas -->
+                        <div class="mb-5">
+                            <h5 class="fw-semibold mb-3">📅 Visitas por Dia</h5>
+                            <div class="row g-3 align-items-end">
+                                <div class="col-md-4">
+                                    <label for="dataVisita" class="form-label">Data</label>
+                                    <input type="date" class="form-control" id="dataVisita">
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-primary w-100" onclick="filtrarVisitas()">Filtrar</button>
+                                </div>
+                            </div>
+                            <div id="resultadoVisitas" class="mt-4"></div>
+                        </div>
+
+                        <hr>
+
+                        <!-- Filtro de Acessos à Portaria -->
+                        <div>
+                            <h5 class="fw-semibold mb-3">🚪 Acessos à Portaria por Dia</h5>
+                            <div class="row g-3 align-items-end">
+                                <div class="col-md-4">
+                                    <label for="dataAcesso" class="form-label">Data</label>
+                                    <input type="date" class="form-control" id="dataAcesso">
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-secondary w-100" onclick="filtrarAcessos()">Filtrar</button>
+                                </div>
+                            </div>
+                            <div id="resultadoAcessos" class="mt-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="text-dark py-4 text-center bg-white border-top mt-5">
+            <p class="mb-0">© 2025 <strong>FACEPASS</strong> - Todos os direitos reservados.</p>
+            <p class="small">Dúvidas? Fale com a gente no <a href="{{URL_DASH}}/suporte"
+                    class="text-primary text-decoration-none fw-semibold">nosso suporte</a>.</p>
         </footer>
 
     </div>
